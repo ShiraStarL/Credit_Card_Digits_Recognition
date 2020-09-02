@@ -1,0 +1,4 @@
+models/*.weights
+.idea/
+__pycache__/
+debug
