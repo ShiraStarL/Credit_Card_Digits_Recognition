@@ -64,6 +64,16 @@ clinet url should be POST method and looks like this:  http://<host_ip>:<port_nu
 
 **Attach to the request credit card image that filmed from Simplify application.**
 
+## Acknowledgment
+
+DataBase:
+- Friends, especially [Guy Chriqui](https://github.com/GuyChriqui) :)
+- [Imagaug](https://github.com/aleju/imgaug)
+
+Training:
+- [AlexeyAB/Darknet](https://github.com/AlexeyAB/darknet)
+- [Training YOLOv3](https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

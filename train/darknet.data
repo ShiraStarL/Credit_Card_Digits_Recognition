@@ -1,0 +1,6 @@
+classes = 42
+train  = /home/shira/Documents/Projects/CC_Detector/train.txt
+valid  = /home/shira/Documents/Projects/CC_Detector/test.txt
+names = /home/shira/Documents/Projects/CC_Detector/classes.names
+backup = /home/shira/Documents/Projects/CC_Detector/weights
+
