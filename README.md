@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+![alt text](output_imgs/output_6.jpg)
+
 **I didn't attached the neural network because I worked too hard on the dataset**
 
 To see how I collected datset and trained my model please read 'train.txt'
