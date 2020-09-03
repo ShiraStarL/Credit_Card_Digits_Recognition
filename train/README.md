@@ -11,7 +11,7 @@
 
 1. Create the train-test split
 ```
-python3 splitTrainAndTest.py ../../database/train
+python3 utils/splitTrainAndTest.py ../../database/train
 ```
 
 2. Install Darknet and compile it.
@@ -44,4 +44,4 @@ cd ~/darknet\
 
 
 
-If you need any help please contact me
+If you need any help please contact me - shira.levi11@gmail.com

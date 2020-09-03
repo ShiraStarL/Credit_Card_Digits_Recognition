@@ -1,6 +1,6 @@
-# Credit Card Detection
+# Credit Card Digits Recognition
 
-"Credit Card Detection" is a deep learning project that detects credit card digits (name, number, valid date, type: visa/mastercard)
+Detects and recognizes credit card digits (name, number, valid date, type: visa/mastercard) using AI and CV.
 
 ## Getting Started
 
@@ -66,7 +66,7 @@ clinet url should be POST method and looks like this:  http://<host_ip>:<port_nu
 
 ## Acknowledgment
 
-DataBase:
+Dataset:
 - Friends, especially [Guy Chriqui](https://github.com/GuyChriqui) :)
 - [Imagaug](https://github.com/aleju/imgaug)
 

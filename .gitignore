@@ -2,3 +2,4 @@ models/*.weights
 .idea/
 __pycache__/
 debug
+train/weights/*
