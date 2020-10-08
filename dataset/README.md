@@ -21,7 +21,7 @@ python3 labelImg.py
 
 4. Data Augmentation
 
-![alt text](data/7/7_3.jpg) ![alt text](data/6/6_4.jpg)
+![alt text](data/7/7_3.jpg) ![alt text](data/5/5_12.jpg)
 
 I used [Imagaug](https://github.com/aleju/imgaug) for it. Check [image_augmantation.py](image_augmantation.py) and [image_augmantation_hard.py](image_augmantation_hard.py). There are also examples in [data](data/) directory.
 
