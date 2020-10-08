@@ -6,11 +6,11 @@ Detects and recognizes credit card digits (name, number, valid date, type: visa/
 
 ![alt text](output_imgs/output_6.jpg)
 
-**I didn't attached the neural network because I worked too hard on the dataset**
-
-To see how I collected datset and trained my model please read 'train.txt'
+To see how I collected the dataset and trained my model please read the README in 'dataset' directory
 
 After you train your model save it as "models/darknet-yolov3_best.weights"
+
+**I coudln't attache the dataset because of privte details of the cards holders**
 
 ### Prerequisites
 
