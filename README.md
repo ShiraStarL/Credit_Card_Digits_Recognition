@@ -10,7 +10,7 @@ To see how I collected the dataset and trained my model please read the README i
 
 After you train your model save it as "models/darknet-yolov3_best.weights"
 
-**I coudln't attache the dataset because of privte details of the cards holders**
+**I coudln't attache the dataset because of private details of the cards holders**
 
 ### Prerequisites
 
@@ -82,5 +82,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 **Shira Levy** - [Shira Star](https://github.com/ShiraStarL)
 
-"It is only with the hurt one can see rightly, what is essential is invisible to the eye" [Le petit prince](https://i.pinimg.com/originals/d5/0d/44/d50d44dfc6cfbc89f9f27d582fe401e7.jpg) 
+"It is only with the heart that one can see rightly, what is essential is invisible to the eye" [Le petit prince](https://i.pinimg.com/originals/d5/0d/44/d50d44dfc6cfbc89f9f27d582fe401e7.jpg) 
 
