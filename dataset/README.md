@@ -6,7 +6,7 @@ Collecting the dataset was the difficult part because people don't want to share
 ### Steps:
 
 1. Ask from everyone you know to take a picture of his credit cards.
-- If they don't trust you, ask them to the delete the number but not the name and expire date, letters are harder to get.
+- If they don't trust you, ask them to delete the number but not the name and expire date, letters are harder to get.
 
 2. In each image cut the redundant background, you have to do it yourself and not use script, so you can be sure you are not loosing important data.
 
@@ -18,7 +18,7 @@ Collecting the dataset was the difficult part because people don't want to share
 python3 labelImg.py
 ```
 - Open your images directory.
-- Label each one in YOLO format : just press on "PascalVOC" button and it will change to YOLO.
+- Label each one in YOLO format : just press on `PascalVOC` button and it will change to YOLO.
 
 4. Data Augmentation
 
