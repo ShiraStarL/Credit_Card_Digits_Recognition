@@ -25,7 +25,7 @@ python libraries:
 
 ### Installing
 
-Install libreries using pip3
+Install libraries using pip3
 
 ```bash
 pip3 install -r requirements.txt
@@ -38,9 +38,9 @@ pip3 install -r requirements.txt
 ```bash
 python3 main.py <image_path> 
 ```
-Option: image_path = examples/1.jpg  or  image_path = examples/2.jpg
+Option: image_path = examples/6.jpg  or  image_path = examples/8.jpg
 
-**Image shold be credit card image with minimum background.**
+**Image should be credit card image with minimum background.**
 
 
 2. Rest API - running https server

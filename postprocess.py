@@ -104,6 +104,9 @@ def IOU(box1, box2):
 def split_to_groups(sorted_by_y):
     arrays = []
     j = 0
+    print(sorted_by_y[0])
+
+    # sorted_by_y with elements - ([x, y, w, h], class_id)
     for i in range(len(sorted_by_y)):
         # add last element
         if i == (len(sorted_by_y) - 1):
@@ -111,16 +114,18 @@ def split_to_groups(sorted_by_y):
             arrays.append(temp)
             continue
 
-        y1 = sorted_by_y[i][0][1]
-        y1_h = sorted_by_y[i][0][1] + sorted_by_y[i][0][3]
-        y2 = sorted_by_y[i+1][0][1]
-        y2_h = sorted_by_y[i+1][0][1] + sorted_by_y[i+1][0][3]
-        per = abs(y1_h-y2)/abs(y1-y2_h)
+        _, y1_first, _, h_first = sorted_by_y[i][0]
+        y2_first = y1_first + h_first
+
+        _, y1_second, _, h_second = sorted_by_y[i+1][0]
+        y2_second = y1_second + h_second
+
+        per = abs(y2_first-y1_second)/abs(y1_first-y2_second)
 
         if per > 0.5:
             continue
         else:
-            # if distance is above 20: enter all values below to array and continue
+            # if distance is above 20: enter all values below into array and continue
             temp = [x for x in sorted_by_y[j:i+1]]
             arrays.append(temp)
             j = i+1
