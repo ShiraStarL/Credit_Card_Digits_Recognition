@@ -3,3 +3,4 @@ models/*.weights
 __pycache__/
 debug
 train/weights/*
+.DS_Store

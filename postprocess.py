@@ -7,8 +7,7 @@ nmsThreshold = 0.4  # Non-maximum suppression threshold
 
 
 def filter_by_confidence(outs, frame):
-    frame_height = frame.shape[0]
-    frame_width = frame.shape[1]
+    frame_height, frame_width = frame.shape[:2]
 
     # Scan through all the bounding boxes output from the network and keep only the
     # ones with high confidence scores. Assign the box's class label as the class with the highest score.
@@ -66,10 +65,7 @@ def draw_preds(indices, boxes, _frame, classes, classes_color, class_ids, confid
         # draw bounding boxes on image
         i = i[0]
         box = boxes[i]
-        left = box[0]
-        top = box[1]
-        width = box[2]
-        height = box[3]
+        left, top, width, height = box
         drawPred(_frame, classes, classes_color,  class_ids[i], confidences[i], left, top, left + width, top + height)
 
         # append to indices boxes and classes ids - after non maxima
