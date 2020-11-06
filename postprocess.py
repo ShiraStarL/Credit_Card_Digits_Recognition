@@ -104,10 +104,9 @@ def IOU(box1, box2):
 def split_to_groups(sorted_by_y):
     arrays = []
     j = 0
-    print(sorted_by_y[0])
 
     # sorted_by_y with elements - ([x, y, w, h], class_id)
-    for i in range(len(sorted_by_y)):
+    for i in range(len(sorted_by_y)-1):
         # add last element
         if i == (len(sorted_by_y) - 1):
             temp = [x for x in sorted_by_y[j:i + 1]]
@@ -129,6 +128,7 @@ def split_to_groups(sorted_by_y):
             temp = [x for x in sorted_by_y[j:i+1]]
             arrays.append(temp)
             j = i+1
+
     return arrays
 
 
@@ -137,13 +137,21 @@ def get_name(array, classes):
     name = ""
     if len(array) == 1:
         return str(name[0])
+
     for i in range(len(array) - 1):
-        # detect spaces between digits: abs(x1+w1-x2)/abs(x1 -x2)
-        per = abs(array[i][0][0] + array[i][0][2] - array[i + 1][0][0])/abs(array[i][0][0] - array[i + 1][0][0])
+
+        # detect spaces between digits: abs(x_first + w - x_second)/abs(x_first - x_second)
+        x_first, _, w, _ = array[i][0]
+        x_second = array[i+1][0][0]
+
+        per = abs(x_first + w - x_second) / abs(x_first - x_second)
+
         if per > 0.3:
             name += classes[int(array[i][1])] + " "
         else:
             name += classes[int(array[i][1])]
+
+    # add last element
     name += classes[int(array[-1][1])]
     print("name: ", name)
     return name
@@ -282,8 +290,9 @@ def postprocess(_frame, outs, image_name, save):
             for digit in sort_by_x:
                 if 10 <= digit[1] <= 35:
                     count_letters += 1
+
             per = count_letters/len(sort_by_x)
-            print("name per:", per)
+
             if per > 0.8:
                 name = get_name(sort_by_x, classes)
                 card_details_dict["full_name"] = name
