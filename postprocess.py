@@ -106,7 +106,7 @@ def split_to_groups(sorted_by_y):
     j = 0
 
     # sorted_by_y with elements - ([x, y, w, h], class_id)
-    for i in range(len(sorted_by_y)-1):
+    for i in range(len(sorted_by_y)):
         # add last element
         if i == (len(sorted_by_y) - 1):
             temp = [x for x in sorted_by_y[j:i + 1]]
