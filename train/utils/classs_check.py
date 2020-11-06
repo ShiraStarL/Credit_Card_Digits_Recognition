@@ -38,11 +38,10 @@ if args.dir:
     for file in listdir(path_to_files):
         with open(path_to_files + '/' + file) as f:
             lines = f.readlines()
-            for line in lines:
+            for line in lines:  # TBD: use Counter
                 cls = line.split()[0]
                 classes[int(cls)] += 1
 
-sort_classes = {k: v for k, v in sorted(zip(classes.items(), classes_names), key=lambda item: item[0][1])}
-for item in sort_classes:
-    print(sort_classes[item], ":", item[1])
+sort_classes = {k: v for k, v in sorted(zip(classes_names, classes.values()), key=lambda item: item[1])}
+print(sort_classes)
 

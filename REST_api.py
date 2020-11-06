@@ -39,14 +39,10 @@ class GetPicture(Resource):
             card_details["status"] = False
 
         # Add missing keys
-        if "card_type" not in card_details:
-            card_details["card_type"] = ""
-        if "card_number" not in card_details:
-            card_details["card_number"] = ""
-        if "valid_date" not in card_details:
-            card_details["valid_date"] = ""
-        if "full_name" not in card_details:
-            card_details["full_name"] = ""
+        keys = ["card_type", "card_number", "valid_date", "full_name"]
+        for key in keys:
+            if key not in card_details:
+                card_details[key] = ""
 
         # encode response using jsonpickle
         response_pickled = jsonpickle.encode(card_details)
@@ -63,9 +59,9 @@ api.add_resource(GetPicture, '/pic')
 if __name__ == '__main__':
     # Parse program arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", help="Enter your host ip", default='0.0.0.0')
-    parser.add_argument("--port", help="Enter your port", default="5000")
-    parser.add_argument("--dev", help="Enter True for development server", action="store_true")
+    parser.add_argument("--host", help="Host ip", default='0.0.0.0')
+    parser.add_argument("--port", help="Port", default="5000")
+    parser.add_argument("--dev", help="True for development server", action="store_true")
     parser.add_argument("--save", help="Save output image", action="store_true")
     args = parser.parse_args()
 

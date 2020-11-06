@@ -3,13 +3,6 @@ import imgaug as ia
 import imageio
 import imgaug.augmenters as iaa
 
-def img_func(images, random_state, parents, hooks):
-    for img in images:
-        img[::10] = 0
-    return images
-
-def keypoint_func(keypoints_on_images, random_state, parents, hooks):
-    return keypoints_on_images
 
 dirs = range(5, 8)
 path = "data/"
@@ -19,11 +12,7 @@ for d in dirs:
 
     image = imageio.imread(img_path)
 
-    images = [image, image, image, image, image, image, image, image, image, image,
-    image, image, image, image, image, image, image, image, image, image,
-    image, image, image, image, image, image, image, image, image, image,
-    image, image, image, image, image, image, image, image, image, image,
-    image, image, image, image, image, image, image, image, image]
+    images = [image] * 50
 
     sometimes = lambda aug: iaa.Sometimes(0.5, aug)
 

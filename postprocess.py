@@ -170,12 +170,12 @@ def get_valid_date(array, classes, index):
     return valid_date
 
 
-def get_card_type(array):
-    if (array[1] == 39) or (array[1] == 40):
+def get_card_type(item):
+    if (item == 39) or (item == 40):
         print("card_type: visa")
         return "visa"
 
-    if (array[1] == 38) or (array[1] == 41):
+    if (item == 38) or (item == 41):
         print("card_type: mastercard")
         return "mastercard"
 
@@ -185,8 +185,12 @@ def get_card_number(array, classes):
     card_number = ""
     _sum = 0
     for i in range(len(array) - 1):
-        # detect spaces between digits: abs(x1+w1-x2)/abs(x1 -x2)
-        per = abs(array[i][0][0] + array[i][0][2] - array[i + 1][0][0])/abs(array[i][0][0] - array[i + 1][0][0])
+        # detect spaces between digits: abs(x_first + w - x_second)/abs(x_first - x_second)
+        x_first, _, w, _ = array[i][0]
+        x_second = array[i+1][0][0]
+
+        per = abs(x_first + w - x_second) / abs(x_first - x_second)
+
         if 0.30 <= per:
             card_number += classes[int(array[i][1])] + " "
         else:
@@ -237,10 +241,12 @@ def postprocess(_frame, outs, image_name, save):
 
     # detect visa or mastercard and delete box from array:
     card_type = ""
+    card_type_classes_ids = range(38, 42)
     for item in sorted_by_y:
-        if 38 <= item[1] <= 41:
+        # if class is 'mastercard' or 'visa'
+        if item[1] in card_type_classes_ids:
             if not card_type:
-                card_type = get_card_type(item)
+                card_type = get_card_type(item[1])
                 card_details_dict["card_type"] = card_type
                 cv.putText(_frame, "Card type : " + card_type, (10, 100), cv.FONT_HERSHEY_DUPLEX, 0.75, (255, 255, 255), 2)
             sorted_by_y.remove(item)
