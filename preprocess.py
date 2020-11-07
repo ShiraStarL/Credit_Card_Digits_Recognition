@@ -37,17 +37,9 @@ def preprocess(img, debug=True):
         counts = img.copy()
         cv2.drawContours(counts, contours, -1, (0, 255, 0), 3)
 
-    # find the biggest contour
-    max_area = 0
-    card_contour = []
-    for contour in contours:
-        area = cv2.contourArea(contour)
-        if area > max_area:
-            max_area = area
-            card_contour = contour
-
-    # measures of bounding box around the bigger contour
-    x, y, w, h = cv2.boundingRect(card_contour)
+    # find the biggest contour (c) by the area
+    c = max(contours, key = cv2.contourArea)
+    x,y,w,h = cv2.boundingRect(c)
 
     if debug:
         # draw rectangle around contour

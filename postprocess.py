@@ -113,6 +113,8 @@ def split_to_groups(sorted_by_y):
             arrays.append(temp)
             continue
 
+        # calculate the ratio between y distance
+        # of two consecutive elements to spot new group
         _, y1_first, _, h_first = sorted_by_y[i][0]
         y2_first = y1_first + h_first
 
@@ -140,7 +142,8 @@ def get_name(array, classes):
 
     for i in range(len(array) - 1):
 
-        # detect spaces between digits: abs(x_first + w - x_second)/abs(x_first - x_second)
+        # spot spaces between digits.
+        # e.g. first-last name
         x_first, _, w, _ = array[i][0]
         x_second = array[i+1][0][0]
 
@@ -252,14 +255,14 @@ def postprocess(_frame, outs, image_name, save):
             sorted_by_y.remove(item)
 
     # split to groups (valid, card number, name)
-    arrays = split_to_groups(sorted_by_y)
+    groups = split_to_groups(sorted_by_y)
 
     # second: sort by x every group and get the data
     name = ""
     valid_date = ""
     card_number = ""
-    for array in arrays:
-        sort_by_x = sorted(array, key=lambda x: x[0][0])
+    for group in groups:
+        sort_by_x = sorted(group, key=lambda x: x[0][0])
 
         # valid
         # check if '/' is in array
