@@ -17,7 +17,7 @@ def detection(img, net):
     inpHeight = 416       # Height of network's input image
 
     # Create a 4D blob from a frame.
-    blob = cv.dnn.blobFromImage(img, 1/255, (inpWidth, inpHeight), [0, 0, 0], 1, crop=False)
+    blob = cv.dnn.blobFromImage(img, 1/255, (inpWidth, inpHeight), swapRB=True)
 
     # Sets the input to the network
     net.setInput(blob)

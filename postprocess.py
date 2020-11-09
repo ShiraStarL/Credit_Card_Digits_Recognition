@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+import random
 
 # Initialize the parameters
 confThreshold = 0.5  # Confidence threshold
@@ -206,24 +207,17 @@ def get_card_number(array, classes):
 # Remove the bounding boxes with low confidence using non-maxima suppression
 def postprocess(_frame, outs, image_name, save):
 
-    # Load names of classes
-    classes_file = "models/classes.names"
-
-    classes = []
-    with open(classes_file, 'rt') as f:
-        classes = f.read().rstrip('\n').split('\n')
+    # Load classes names
+    with open("models/classes.names", 'rt') as f:
+        classes = f.read().splitlines()
 
     # random color for each class
     classes_color = []
-    i = 0
-    while True:
+    while len(classes_color) < 44:
         color = list(np.random.choice(range(256), size=3))
         if color in classes_color:
             continue
         classes_color.append(color)
-        i += 1
-        if i >= 43:
-            break
 
     class_ids, confidences, boxes = filter_by_confidence(outs, _frame)
 
